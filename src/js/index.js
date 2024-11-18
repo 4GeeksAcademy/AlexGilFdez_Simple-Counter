@@ -1,13 +1,19 @@
-//import react into the bundle
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-// include your styles into the webpack bundle
 import "../styles/index.css";
-
-//import your own components
 import Home from "./component/home.jsx";
 
-//render your react application
-ReactDOM.createRoot(document.getElementById('app')).render(<Home/>);
+
+let seconds = 0;
+setInterval (()=> {
+    console.log(seconds);
+   const one = Math.floor(seconds /1) %10; 
+   const two = Math.floor(seconds /10) %10; 
+   const three = Math.floor(seconds /100) %10; 
+   const four = Math.floor(seconds /1000) %10; 
+   const five = Math.floor(seconds /10000) %10; 
+    ReactDOM.createRoot(document.getElementById('app')).render(<Home uno= {one} dos= {two} tres= {three} cuatro= {four} cinco= {five}/>);
+    seconds++
+}, 1000)
+
 
